@@ -1,0 +1,170 @@
+C:\Users\user\Desktop\stdcpp-link-error>windows-compile.bat
+Warning: the '=' character in program arguments is not fully supported.
+Make sure that command line arguments using it are wrapped in double quotes.
+Example:
+"--vm.Dfoo=bar"
+
+Executing [
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\bin\java.exe \
+-XX:+UnlockExperimentalVMOptions \
+-XX:+EnableJVMCI \
+-Dtruffle.TrustAllTruffleRuntimeProviders=true \
+-Dtruffle.TruffleRuntime=com.oracle.truffle.api.impl.DefaultTruffleRuntime \
+-Dgraalvm.ForcePolyglotInvalid=true \
+-Dgraalvm.locatorDisabled=true \
+-d64 \
+-XX:-UseJVMCIClassLoader \
+-XX:+UseJVMCINativeLibrary \
+-Xss10m \
+-Xms1g \
+-Xmx10307544672 \
+-Duser.country=US \
+-Duser.language=en \
+-Dorg.graalvm.version=dev \
+-Dorg.graalvm.config= \
+-Dcom.oracle.graalvm.isaot=true \
+-Djvmci.class.path.append=C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\graal.jar \
+-javaagent:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\svm.jar \
+-Djdk.internal.lambda.disableEagerInitialization=true \
+-Djdk.internal.lambda.eagerlyInitialize=false \
+-Djava.lang.invoke.InnerClassLambdaMetafactory.initializeLambdas=false \
+-Xbootclasspath/a:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\boot\graal-sdk.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\boot\graaljs-scriptengine.jar \
+-cp \
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\objectfile.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\pointsto.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\svm.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\graal-management.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\graal.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\jvmci-api.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\jvmci-hotspot.jar \
+com.oracle.svm.hosted.NativeImageGeneratorRunner \
+-imagecp \
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\boot\graal-sdk.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\boot\graaljs-scriptengine.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\objectfile.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\pointsto.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\builder\svm.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\graal-management.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\graal.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\jvmci-api.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\jvmci\jvmci-hotspot.jar;C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\library-support.jar;C:\Users\user\Desktop\stdcpp-link-error \
+-H:Path=C:\Users\user\Desktop\stdcpp-link-error \
+-H:Name=stdcpp-link-error \
+-H:EnableURLProtocols=https \
+-H:CLibraryPath=C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64 \
+-H:Class=JavaHttpsExample
+]
+[stdcpp-link-error:2476]    classlist:   8,881.36 ms
+[stdcpp-link-error:2476]        (cap):   4,668.28 ms
+[stdcpp-link-error:2476]        setup:  12,941.13 ms
+[stdcpp-link-error:2476]   (typeflow):  62,860.65 ms
+[stdcpp-link-error:2476]    (objects):  27,912.19 ms
+[stdcpp-link-error:2476]   (features):   4,417.94 ms
+[stdcpp-link-error:2476]     analysis:  96,234.02 ms
+[stdcpp-link-error:2476]     (clinit):     914.72 ms
+[stdcpp-link-error:2476]     universe:   4,805.15 ms
+[stdcpp-link-error:2476]      (parse):  11,396.55 ms
+[stdcpp-link-error:2476]     (inline):  13,171.27 ms
+[stdcpp-link-error:2476]    (compile): 107,122.99 ms
+[stdcpp-link-error:2476]      compile: 134,522.70 ms
+[stdcpp-link-error:2476]        image:   5,159.85 ms
+[stdcpp-link-error:2476]        write:     455.34 ms
+Fatal error: java.lang.RuntimeException: java.lang.RuntimeException: host C compiler or linker does not seem to work: java.lang.RuntimeException: returned 2
+
+Running command: CL /MD /Zi /PDBSTRIPPED /FeC:\Users\user\Desktop\stdcpp-link-error\stdcpp-link-error.exe C:\Users\user\AppData\Local\Temp\SVM-2861006800139049725\stdcpp-link-error.obj C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib /link /INCREMENTAL:NO /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:OLDNAMES /LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib /LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64 stdc++.lib advapi32.lib ws2_32.lib secur32.lib iphlpapi.lib
+
+Microsoft (R) C/C++ Optimizing Compiler Version 16.00.30319.01 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line warning D9002 : ignoring unknown option '/PDBSTRIPPED'
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/debug
+/out:C:\Users\user\Desktop\stdcpp-link-error\stdcpp-link-error.exe
+/INCREMENTAL:NO /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:OLDNAMES
+/LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib
+/LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64
+stdc++.lib
+advapi32.lib
+ws2_32.lib
+secur32.lib
+iphlpapi.lib
+C:\Users\user\AppData\Local\Temp\SVM-2861006800139049725\stdcpp-link-error.obj
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+LINK : fatal error LNK1181: cannot open input file 'stdc++.lib'
+
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at java.util.concurrent.ForkJoinTask.getThrowableException(ForkJoinTask.java:593)
+        at java.util.concurrent.ForkJoinTask.get(ForkJoinTask.java:1005)
+        at com.oracle.svm.hosted.NativeImageGenerator.run(NativeImageGenerator.java:462)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.buildImage(NativeImageGeneratorRunner.java:315)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.build(NativeImageGeneratorRunner.java:454)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.main(NativeImageGeneratorRunner.java:115)
+Caused by: java.lang.RuntimeException: host C compiler or linker does not seem to work: java.lang.RuntimeException: returned 2
+
+Running command: CL /MD /Zi /PDBSTRIPPED /FeC:\Users\user\Desktop\stdcpp-link-error\stdcpp-link-error.exe C:\Users\user\AppData\Local\Temp\SVM-2861006800139049725\stdcpp-link-error.obj C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib /link /INCREMENTAL:NO /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:OLDNAMES /LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib /LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64 stdc++.lib advapi32.lib ws2_32.lib secur32.lib iphlpapi.lib
+
+Microsoft (R) C/C++ Optimizing Compiler Version 16.00.30319.01 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+cl : Command line warning D9002 : ignoring unknown option '/PDBSTRIPPED'
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/debug
+/out:C:\Users\user\Desktop\stdcpp-link-error\stdcpp-link-error.exe
+/INCREMENTAL:NO /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:OLDNAMES
+/LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib
+/LIBPATH:C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64
+stdc++.lib
+advapi32.lib
+ws2_32.lib
+secur32.lib
+iphlpapi.lib
+C:\Users\user\AppData\Local\Temp\SVM-2861006800139049725\stdcpp-link-error.obj
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\ffi.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\libchelper.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\strictmath.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\svm\clibraries\windows-amd64\jvm.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\net.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\zip.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\java.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\nio.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+C:\Users\user\Desktop\graalvm-ce-java8-19.3.0\jre\lib\sunec.lib
+LINK : fatal error LNK1181: cannot open input file 'stdc++.lib'
+
+        at com.oracle.svm.hosted.image.NativeBootImageViaCC.write(NativeBootImageViaCC.java:382)
+        at com.oracle.svm.hosted.NativeImageGenerator.doRun(NativeImageGenerator.java:652)
+        at com.oracle.svm.hosted.NativeImageGenerator.lambda$run$0(NativeImageGenerator.java:445)
+        at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1386)
+        at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+        at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+        at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+        at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Error: Image build request failed with exit status 1
+com.oracle.svm.driver.NativeImage$NativeImageError: Image build request failed with exit status 1
+        at com.oracle.svm.driver.NativeImage.showError(NativeImage.java:1482)
+        at com.oracle.svm.driver.NativeImage.build(NativeImage.java:1260)
+        at com.oracle.svm.driver.NativeImage.performBuild(NativeImage.java:1222)
+        at com.oracle.svm.driver.NativeImage.main(NativeImage.java:1181)
+C:\Users\user\Desktop\stdcpp-link-error>

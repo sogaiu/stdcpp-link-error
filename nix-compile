@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ -z "$GRAALVM_HOME" ]; then
+    echo "Please set GRAALVM_HOME"
+    exit 1
+fi
+
+"$GRAALVM_HOME/bin/gu" install native-image
+
+NATIVE_IMAGE="$GRAALVM_HOME/bin/native-image"
+
+# use version that native-image can work with
+$GRAALVM_HOME/bin/javac JavaHttpsExample.java
+
+$NATIVE_IMAGE \
+  JavaHttpsExample \
+  "-H:Name=stdcpp-link-error" \
+  "-H:EnableURLProtocols=https" \
+  --verbose

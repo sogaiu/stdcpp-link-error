@@ -1,0 +1,103 @@
+= Introduction
+
+For simple Java code using some basic HTTPS functionality, building a native-image binary with `-H:EnableURLProtocols=https` does not succeed on Windows 10 with Graal 19.3.0.
+
+Instead error output including the following is observed:
+
+```
+LINK : fatal error LNK1181: cannot open input file 'stdc++.lib'
+```
+
+Seemingly analogous steps produce a working binary under at least one Linux distribution.
+
+== Description
+
+Consider the following code:
+
+```
+// modified: https://alvinalexander.com/blog/post/java/simple-https-example
+import java.net.URL;
+import java.io.*;
+import javax.net.ssl.HttpsURLConnection;
+
+public class JavaHttpsExample
+{
+    public static void main(String[] args) throws Exception {
+        String httpsURL = "https://www.clojure.org/";
+        URL myUrl = new URL(httpsURL);
+        HttpsURLConnection conn = (HttpsURLConnection)myUrl.openConnection();
+        InputStream is = conn.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String inputLine;
+        while ((inputLine = br.readLine()) != null) {
+            System.out.println(inputLine);
+        }
+        br.close();
+    }
+}
+```
+
+Assuming an appropriate value for `GRAALVM_HOME`, the following batch file does not successfully produce a native-image binary on Windows 10:
+
+```
+@echo off
+
+if "%GRAALVM_HOME%"=="" (
+    echo Please set GRAALVM_HOME
+    exit /b
+)
+
+%GRAALVM_HOME%\bin\javac JavaHttpsExample.java
+
+call %GRAALVM_HOME%\bin\native-image.cmd ^
+  JavaHttpsExample ^
+  "-H:Name=stdcpp-link-error" ^
+  "-H:EnableURLProtocols=https" ^
+  --verbose
+```
+
+== Prerequisites
+
+* Windows 10, preferably as fresh an installation as possible
+* Windows SDK for Windows 7 (7.1)
+* Graal 19.3.0
+* Some Linux distribution to compare results
+
+== Windows Steps
+
+* Prep
+** Clone this repository
+** cd to cloned repository directory
+
+* Build native-image binary
+** Set GRAALVM_HOME environment variable appropriately
+** From "Windows SDK 7.1 Command Prompt": `windows-compile.bat`
+** Observe error output (partial output below, see error-output.txt file for full output):
+
+----
+LINK : fatal error LNK1181: cannot open input file 'stdc++.lib'
+
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at java.util.concurrent.ForkJoinTask.getThrowableException(ForkJoinTask.java:593)
+        at java.util.concurrent.ForkJoinTask.get(ForkJoinTask.java:1005)
+        at com.oracle.svm.hosted.NativeImageGenerator.run(NativeImageGenerator.java:462)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.buildImage(NativeImageGeneratorRunner.java:315)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.build(NativeImageGeneratorRunner.java:454)
+        at com.oracle.svm.hosted.NativeImageGeneratorRunner.main(NativeImageGeneratorRunner.java:115)
+Caused by: java.lang.RuntimeException: host C compiler or linker does not seem to work: java.lang.RuntimeException: returned 2
+----
+
+== Linux Distribution Steps
+
+* Prep
+** Clone this repository
+** cd to cloned repository directory
+
+* Build native-image binary
+** Set GRAALVM_HOME environment variable appropriately
+** From command line: `bash nix-compile`
+** Observe newly created native-image binary named `stdcpp-link-error`
